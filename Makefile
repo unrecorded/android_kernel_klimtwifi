@@ -652,6 +652,8 @@ endif
 #endif
 
 # Add user supplied CPPFLAGS, AFLAGS and CFLAGS as the last assignments
+LDFLAGS	+= -z noexecstack
+LDFLAGS	+= $(call ld-option,--no-warn-rwx-segments)
 # But warn user when we do so
 warn-assign = \
 $(warning "WARNING: Appending $$K$(1) ($(K$(1))) from $(origin K$(1)) to kernel $$$(1)")
